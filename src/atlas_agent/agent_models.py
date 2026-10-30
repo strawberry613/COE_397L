@@ -38,19 +38,19 @@ class ClarificationDecision(DecisionModel):
     kind: Literal["clarification"]
     question: str
     missing_fields: list[str]
-    # TODO 1.1 done
+    # TODO 1.1 done - added question and missing_fields
 
 
 class FinalDecision(DecisionModel):
     kind: Literal["final"]
     response: AgentResponse
-    # TODO 1.2 done
+    # TODO 1.2 done - added response
 
 
 AgentDecision = Annotated[
     ToolCallDecision | ClarificationDecision | FinalDecision,
     Field(discriminator="kind"),
 ]
-# TODO 1.3 done
+# TODO 1.3 done - made a discrimniated union
 
 DecisionAdapter = TypeAdapter(AgentDecision)
