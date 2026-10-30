@@ -95,7 +95,10 @@ def run_agent(
             observation = environment.dispatch(decision.tool, decision.arguments)
         else:
             observation = ToolObservation(
-                ok=False, tool=decision.tool, error_code="action_gate_denied"
+                ok=False,
+                tool=decision.tool,
+                error_code="action_gate_denied",
+                message="; ".join(error_list),
             )
         # TODO 2.4 done - returns an observation if errors exist, dispatch the tool if there are no errors
         # raise NotImplementedError
