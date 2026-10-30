@@ -77,9 +77,9 @@ def run_agent(
                 )
             else:
                 return _failed(
-                    "Inconsistent Final Decision",
+                    "; ".join(error_list),
                     trace=trace,
-                    reason="invalid_model_decision",
+                    reason="invalid_final_response",
                 )
             # TODO 2.3 done. Error list checks for inconsistencies and errors based on the validation function.
             # Returns a failure if the error list is populated with any errors
